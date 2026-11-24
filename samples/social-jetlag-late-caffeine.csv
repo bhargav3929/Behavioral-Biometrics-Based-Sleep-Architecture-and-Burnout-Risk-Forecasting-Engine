@@ -1,0 +1,11 @@
+# title: Social jetlag + late caffeine (exam week)
+# order: 3
+context: Student / Exam Week
+day,sleep_hours,bedtime,wake_time,screen_hours,caffeine_mg,last_caffeine
+Mon,4.5,02:00,06:30,9,380,18:30
+Tue,4.5,02:00,06:30,10,380,18:30
+Wed,4.5,02:00,06:30,9.5,380,18:30
+Thu,4.5,02:00,06:30,10,380,18:30
+Fri,4.5,03:00,07:30,9,380,18:30
+Sat,11.5,03:30,15:00,8,380,18:30
+Sun,11.5,02:00,13:30,8.5,380,18:30

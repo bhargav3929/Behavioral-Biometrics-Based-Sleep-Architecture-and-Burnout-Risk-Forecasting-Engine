@@ -1,0 +1,9 @@
+{
+  "http_status": 400,
+  "error": "Day 3 (Wed): caffeine cannot be negative (-150 mg). (and 1 more problem)",
+  "code": "BAD_INPUT",
+  "details": [
+    "Day 3 (Wed): caffeine cannot be negative (-150 mg).",
+    "Day 3 (Wed): 16 h sleep + 14 h screen = 30 h, which cannot fit in one 24-hour day."
+  ]
+}

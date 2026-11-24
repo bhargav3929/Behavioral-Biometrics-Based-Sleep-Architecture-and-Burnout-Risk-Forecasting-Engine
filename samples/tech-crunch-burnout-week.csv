@@ -1,0 +1,11 @@
+# title: Tech crunch week (severe sleep restriction)
+# order: 1
+context: Standard Knowledge Worker
+day,sleep_hours,bedtime,wake_time,screen_hours,caffeine_mg,last_caffeine
+Mon,5.0,01:30,06:30,12,480,18:00
+Tue,4.5,02:00,06:30,12.5,520,18:30
+Wed,5.5,01:00,06:30,11,420,17:00
+Thu,4.5,02:00,06:30,13,550,19:00
+Fri,5.0,01:30,06:30,12,500,18:00
+Sat,5.5,01:30,07:00,11,430,17:30
+Sun,5.0,01:30,06:30,12,460,18:00

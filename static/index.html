@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Sleep Lab Burnout Forecaster</title>
+<meta name="description" content="Forecast burnout risk from a 7-day sleep, screen and caffeine log, with a personalised daily recovery schedule.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230D1019'/%3E%3Cpath d='M20 5a11 11 0 1 0 7 17a9 9 0 0 1-7-17z' fill='%23A78BFA'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+
+<div class="mobilebar">
+  <button class="iconbtn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="rail">
+    <svg viewBox="0 0 24 24" width="22" height="22"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+  </button>
+  <span class="mb-title">Sleep &amp; Burnout Forecasting Engine</span>
+  <span class="runs-mini"><b id="runsLeftMini">15</b>/15</span>
+</div>
+<div class="scrim" id="railScrim" hidden></div>
+
+<div class="shell">
+  <!-- ========== LEFT RAIL ========== -->
+  <aside class="rail" id="rail">
+    <div class="brand">
+      <svg class="emblem" viewBox="0 0 64 64" role="img" aria-label="Crescent moon over a sleep wave">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="40%" r="60%"><stop offset="0" stop-color="#A78BFA" stop-opacity=".55"/><stop offset="1" stop-color="#A78BFA" stop-opacity="0"/></radialGradient>
+          <linearGradient id="wv" x1="0" x2="1"><stop offset="0" stop-color="#FF6B4A"/><stop offset="1" stop-color="#A78BFA"/></linearGradient>
+        </defs>
+        <circle cx="30" cy="26" r="26" fill="url(#glow)"/>
+        <path d="M36 7a19 19 0 1 0 12 30a15.5 15.5 0 0 1-12-30z" fill="#C4B5FD"/>
+        <path d="M4 50c6-9 10-9 16 0s10 9 16 0 10-9 16 0 6 6 8 4" fill="none" stroke="url(#wv)" stroke-width="3.2" stroke-linecap="round"/>
+      </svg>
+      <h1 id="appTitle">Behavioral Biometrics Based Sleep Architecture and Burnout Risk Forecasting Engine</h1>
+    </div>
+
+    <nav class="nav" id="nav" aria-label="Sections">
+      <button type="button" data-view="forecast" class="on"><i>01</i>7-Day Burnout Forecast</button>
+      <button type="button" data-view="whatif"><i>02</i>What-If Recovery Simulator</button>
+      <button type="button" data-view="schedule"><i>03</i>Daily Recovery Schedule</button>
+    </nav>
+
+    <div class="telemetry">
+      <div class="runs" id="runsPill" title="Sliding one-hour window. Failed runs are refunded.">
+        <span class="dot"></span><span><b id="runsLeft">15</b>/15 Free Demo Runs Left This Hour</span>
+      </div>
+      <div class="rail-btns">
+        <button class="btn" id="historyBtn" type="button">History</button>
+        <button class="btn" id="keysBtn" type="button">API Keys</button>
+      </div>
+    </div>
+
+    <div class="disc" role="note">
+      <strong>Wellness &amp; Educational Forecasting Only &mdash; Not Medical Advice:</strong>
+      This tool estimates behavioral fatigue patterns from self-logged habits and does not diagnose sleep disorders or medical conditions. Consult a qualified healthcare professional for persistent insomnia or exhaustion.
+    </div>
+  </aside>
+
+  <!-- ========== STAGE ========== -->
+  <main class="stage">
+    <div id="notice" class="notice" hidden></div>
+    <div class="split">
+
+      <!-- left pane: input console -->
+      <section class="console" aria-label="Biometric input console">
+        <div class="pane-head"><h2>Biometric Input Console</h2><span class="tag mono">7 days</span></div>
+
+        <div class="lbl">Sample logs</div>
+        <div class="chips" id="sampleBtns"></div>
+
+        <div class="lbl">Lifestyle / age context</div>
+        <div class="chips" id="pills" role="radiogroup" aria-label="Lifestyle and age context"></div>
+        <input id="customCtx" class="text" type="text" maxlength="200" placeholder="e.g. 15 year old, night shift nurse, heart palpitations&hellip;" hidden>
+
+        <div class="lbl">Nightly log</div>
+        <div class="matrix-wrap">
+          <table class="matrix" id="matrix">
+            <thead><tr>
+              <th>Day</th><th>Sleep<br>(hrs)</th><th>Bed</th><th>Wake</th><th>Screen<br>(hrs)</th><th>Caffeine<br>(mg)</th><th>Last Caff.<br>(24h)</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <details class="paste">
+          <summary>Paste 7-Day CSV / Log</summary>
+          <p class="hint">One line per day: <code>day, sleep, bedtime, wake, screen, caffeine, last caffeine</code>. A line such as <code>context: Student / Exam Week</code> is optional.</p>
+          <textarea id="pasteBox" rows="8" spellcheck="false" placeholder="Mon,6.5,00:30,07:00,8,300,15:00&#10;Tue,7,23:45,07:00,7,250,14:00"></textarea>
+          <button class="btn" id="pasteBtn" type="button">Fill the table from this text</button>
+        </details>
+
+        <button class="cta" id="runBtn" type="button">Forecast Burnout &amp; Build Recovery Plan</button>
+        <div class="console-foot">
+          <button class="linkbtn" id="clearBtn" type="button">Reset table</button>
+          <span class="hint" id="runHint"></span>
+        </div>
+        <div class="disc disc-mobile" role="note">
+          <strong>Wellness &amp; Educational Forecasting Only &mdash; Not Medical Advice:</strong>
+          This tool does not diagnose sleep disorders or medical conditions. Consult a qualified healthcare professional for persistent insomnia or exhaustion.
+        </div>
+      </section>
+
+      <!-- right pane: live stage -->
+      <section class="live" aria-label="Chronobiology and recovery stage">
+        <div class="view" id="view-forecast"><div id="forecastOut"></div></div>
+
+        <div class="view" id="view-whatif" hidden>
+          <div class="panel">
+            <div class="pane-head"><h2>What-If Recovery Simulator</h2></div>
+            <p class="hint">Change a habit and re-score the same week. Uses the table on the left: <span id="whatifSummary" class="mono"></span></p>
+            <div class="whatif-grid">
+              <label class="ctl"><span>Extra sleep per night <b class="mono" id="vSleep">+1.0 h</b></span>
+                <input type="range" id="adjSleep" min="0" max="3" step="0.5" value="1"></label>
+              <label class="ctl"><span>Fewer screen hours <b class="mono" id="vScreen">&minus;2.0 h</b></span>
+                <input type="range" id="adjScreen" min="0" max="6" step="0.5" value="2"></label>
+              <label class="ctl"><span>Last caffeine before bed at least</span>
+                <select id="adjCutoff"><option value="">No change</option><option value="6">6 hours</option><option value="8" selected>8 hours</option><option value="10">10 hours</option></select></label>
+              <label class="ctl"><span>Cap caffeine (mg/day, blank = none)</span>
+                <input class="text mono" type="number" id="adjCap" min="0" max="1200" step="25" placeholder="e.g. 200"></label>
+              <label class="ctl check"><input type="checkbox" id="adjLock"><span>Same bedtime and wake time daily</span></label>
+            </div>
+            <div class="row"><button class="cta slim" id="simBtn" type="button">Simulate this plan</button><span class="hint" id="simHint"></span></div>
+          </div>
+          <div id="whatifOut"></div>
+        </div>
+
+        <div class="view" id="view-schedule" hidden><div id="scheduleOut"></div></div>
+      </section>
+    </div>
+
+    <footer class="foot"><span id="footInfo" class="mono"></span><span>Not medical advice. Self-reported data only.</span></footer>
+  </main>
+</div>
+
+<!-- history drawer -->
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" aria-hidden="true">
+  <div class="pane-head"><h2>Forecast history</h2><button class="btn" id="drawerClose" type="button">Close</button></div>
+  <div id="historyList" class="history"></div>
+  <button class="btn danger" id="historyClear" type="button">Clear history</button>
+</aside>
+
+<!-- API keys modal -->
+<dialog id="keysModal">
+  <form method="dialog" class="modal">
+    <h2>Groq API key</h2>
+    <p class="hint">The AI coach needs a free key from <a href="https://console.groq.com/keys" target="_blank" rel="noopener">console.groq.com/keys</a>. It is saved only on this computer and shown masked.</p>
+    <div id="keyStatus" class="keystatus"></div>
+    <input id="keyInput" class="text mono" type="password" autocomplete="off" placeholder="gsk_..." spellcheck="false">
+    <div id="keyMsg" class="hint" role="status"></div>
+    <div class="row">
+      <button class="cta slim" id="keySave" type="button">Save key</button>
+      <button class="btn danger" id="keyRemove" type="button">Remove saved key</button>
+      <button class="btn" id="keyClose" value="close">Close</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="static/js/charts.js"></script>
+<script src="static/js/render.js"></script>
+<script src="static/js/app.js"></script>
+</body>
+</html>

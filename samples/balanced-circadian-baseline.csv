@@ -1,0 +1,11 @@
+# title: Balanced circadian baseline (healthy control)
+# order: 2
+context: Standard Knowledge Worker
+day,sleep_hours,bedtime,wake_time,screen_hours,caffeine_mg,last_caffeine
+Mon,8.0,23:00,07:00,5,120,09:30
+Tue,8.2,22:50,07:00,4.5,100,09:00
+Wed,7.8,23:15,07:00,5.5,150,10:30
+Thu,8.5,22:45,07:15,5,110,09:30
+Fri,8.0,23:00,07:00,5,130,10:00
+Sat,8.3,23:00,07:20,4.5,100,09:30
+Sun,8.1,23:00,07:05,5,110,09:30

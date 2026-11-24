@@ -1,0 +1,387 @@
+{
+  "kind": "forecast",
+  "model": "openai/gpt-oss-120b",
+  "disclaimer": "Wellness & Educational Forecasting Only — Not Medical Advice: This tool estimates behavioral fatigue patterns from self-logged habits and does not diagnose sleep disorders or medical conditions. Consult a qualified healthcare professional for persistent insomnia or exhaustion.",
+  "context": "Standard Knowledge Worker",
+  "profile": {
+    "key": "standard",
+    "label": "Standard Knowledge Worker",
+    "custom_text": "",
+    "age": null,
+    "baseline_sleep": 8.0,
+    "caffeine_limit": 400.0,
+    "reasons": []
+  },
+  "days": [
+    {
+      "day": "Mon",
+      "index": 1,
+      "weekend": false,
+      "sleep": 8.0,
+      "screen": 5.0,
+      "caffeine": 120.0,
+      "bedtime": "23:00",
+      "wake": "07:00",
+      "window_h": 8.0,
+      "last_caffeine": "09:30",
+      "gap_vs_baseline": 0.0,
+      "debt_before": 0.0,
+      "running_debt": 0.0,
+      "midpoint": "03:00",
+      "hours_caffeine_to_bed": 13.5,
+      "residual_mg": 18.47,
+      "late_caffeine": false
+    },
+    {
+      "day": "Tue",
+      "index": 2,
+      "weekend": false,
+      "sleep": 8.2,
+      "screen": 4.5,
+      "caffeine": 100.0,
+      "bedtime": "22:50",
+      "wake": "07:00",
+      "window_h": 8.17,
+      "last_caffeine": "09:00",
+      "gap_vs_baseline": -0.2,
+      "debt_before": 0.0,
+      "running_debt": 0.0,
+      "midpoint": "02:55",
+      "hours_caffeine_to_bed": 13.83,
+      "residual_mg": 14.69,
+      "late_caffeine": false
+    },
+    {
+      "day": "Wed",
+      "index": 3,
+      "weekend": false,
+      "sleep": 7.8,
+      "screen": 5.5,
+      "caffeine": 150.0,
+      "bedtime": "23:15",
+      "wake": "07:00",
+      "window_h": 7.75,
+      "last_caffeine": "10:30",
+      "gap_vs_baseline": 0.2,
+      "debt_before": 0.0,
+      "running_debt": 0.2,
+      "midpoint": "03:08",
+      "hours_caffeine_to_bed": 12.75,
+      "residual_mg": 25.61,
+      "late_caffeine": false
+    },
+    {
+      "day": "Thu",
+      "index": 4,
+      "weekend": false,
+      "sleep": 8.5,
+      "screen": 5.0,
+      "caffeine": 110.0,
+      "bedtime": "22:45",
+      "wake": "07:15",
+      "window_h": 8.5,
+      "last_caffeine": "09:30",
+      "gap_vs_baseline": -0.5,
+      "debt_before": 0.2,
+      "running_debt": 0.0,
+      "midpoint": "03:00",
+      "hours_caffeine_to_bed": 13.25,
+      "residual_mg": 17.53,
+      "late_caffeine": false
+    },
+    {
+      "day": "Fri",
+      "index": 5,
+      "weekend": false,
+      "sleep": 8.0,
+      "screen": 5.0,
+      "caffeine": 130.0,
+      "bedtime": "23:00",
+      "wake": "07:00",
+      "window_h": 8.0,
+      "last_caffeine": "10:00",
+      "gap_vs_baseline": 0.0,
+      "debt_before": 0.0,
+      "running_debt": 0.0,
+      "midpoint": "03:00",
+      "hours_caffeine_to_bed": 13.0,
+      "residual_mg": 21.44,
+      "late_caffeine": false
+    },
+    {
+      "day": "Sat",
+      "index": 6,
+      "weekend": true,
+      "sleep": 8.3,
+      "screen": 4.5,
+      "caffeine": 100.0,
+      "bedtime": "23:00",
+      "wake": "07:20",
+      "window_h": 8.33,
+      "last_caffeine": "09:30",
+      "gap_vs_baseline": -0.3,
+      "debt_before": 0.0,
+      "running_debt": 0.0,
+      "midpoint": "03:10",
+      "hours_caffeine_to_bed": 13.5,
+      "residual_mg": 15.39,
+      "late_caffeine": false
+    },
+    {
+      "day": "Sun",
+      "index": 7,
+      "weekend": true,
+      "sleep": 8.1,
+      "screen": 5.0,
+      "caffeine": 110.0,
+      "bedtime": "23:00",
+      "wake": "07:05",
+      "window_h": 8.08,
+      "last_caffeine": "09:30",
+      "gap_vs_baseline": -0.1,
+      "debt_before": 0.0,
+      "running_debt": 0.0,
+      "midpoint": "03:02",
+      "hours_caffeine_to_bed": 13.5,
+      "residual_mg": 16.93,
+      "late_caffeine": false
+    }
+  ],
+  "metrics": {
+    "cumulative_sleep_debt_h": 0.0,
+    "architecture_efficiency_pct": 94.5,
+    "caffeine_residual_at_bedtime_mg": 18.58,
+    "caffeine_residual_peak_mg": 25.61,
+    "circadian_consistency_score": 95.29,
+    "midpoint_sd_h": 0.08,
+    "midpoint_swing_h": 0.25,
+    "midpoint_mean": "03:02",
+    "mean_sleep_h": 8.13,
+    "sleep_sd_h": 0.21,
+    "mean_screen_h": 4.93,
+    "mean_caffeine_mg": 117.14,
+    "weekday_mean_sleep_h": 8.1,
+    "weekend_mean_sleep_h": 8.2,
+    "weekday_deficit_h": 0.2,
+    "weekend_rebound_h": 0.1,
+    "social_jetlag_h": 0.1
+  },
+  "alerts": [],
+  "notes": [],
+  "burnout": {
+    "score": 5,
+    "band": "optimal",
+    "label": "Optimal Circadian Recovery",
+    "raw_score": 5.26,
+    "floor_applied": false,
+    "floor": 0,
+    "components": [
+      {
+        "key": "sleep_debt",
+        "label": "Cumulative sleep debt",
+        "score": 0.0,
+        "weight": 0.35,
+        "contribution": 0.0
+      },
+      {
+        "key": "caffeine",
+        "label": "Caffeine load & bedtime residual",
+        "score": 6.19,
+        "weight": 0.15,
+        "contribution": 0.93
+      },
+      {
+        "key": "screen",
+        "label": "Screen exposure",
+        "score": 11.61,
+        "weight": 0.15,
+        "contribution": 1.74
+      },
+      {
+        "key": "consistency",
+        "label": "Circadian inconsistency",
+        "score": 4.71,
+        "weight": 0.2,
+        "contribution": 0.94
+      },
+      {
+        "key": "architecture",
+        "label": "Architecture fragmentation",
+        "score": 11.0,
+        "weight": 0.15,
+        "contribution": 1.65
+      }
+    ],
+    "recovery_score": 95
+  },
+  "trajectory": {
+    "key": "stable",
+    "label": "Holding Steady",
+    "debt_mid_week": 0.2,
+    "debt_end": 0.0,
+    "projected_risk_next_week": 4,
+    "note": "Debt is roughly flat. Next week looks like this week unless something changes."
+  },
+  "anchors": {
+    "wake": "07:06",
+    "sunlight": "07:21",
+    "first_caffeine_after": "08:36",
+    "deep_work_start": "09:06",
+    "deep_work_end": "12:06",
+    "caffeine_cutoff": "13:06",
+    "digital_sunset": "21:36",
+    "wind_down": "22:06",
+    "sleep_anchor": "23:06",
+    "target_sleep_hours": 8.0,
+    "caffeine_limit_mg": 400.0
+  },
+  "audit": {
+    "formulas": [
+      {
+        "name": "7-Day Sleep Debt",
+        "formula": "gap = baseline − sleep. If gap > 0: debt += gap. Otherwise: debt = max(0, debt + 0.5 × gap). Surplus sleep repays only half as fast as a deficit builds. Start at debt = 0."
+      },
+      {
+        "name": "Caffeine Half-Life Residual",
+        "formula": "residual = caffeine_mg × 0.5^(hours from last caffeine to bedtime ÷ 5). Upper-bound estimate: the whole day's caffeine is treated as taken at the last-caffeine time."
+      },
+      {
+        "name": "Circadian Midpoint Variance",
+        "formula": "midpoint = bedtime + ((wake − bedtime) mod 24) ÷ 2. Midpoints are averaged on the 24 h circle; variance = RMS of each midpoint's circular deviation from that mean."
+      },
+      {
+        "name": "Architecture Efficiency",
+        "formula": "100 − min(30, 0.2 × mean residual) − min(15, 1.5 × max(0, mean screen − 4)) − min(15, 5 × midpoint SD) − min(20, 3 × max(0, baseline − mean sleep)), floor 20."
+      },
+      {
+        "name": "Weighted Burnout Composite Score",
+        "formula": "0.35·DebtScore + 0.15·CaffeineScore + 0.15·ScreenScore + 0.20·InconsistencyScore + 0.15·ArchitectureScore, then raised to the highest guardrail floor if one applies. DebtScore = min(100, debt ÷ 14 × 100); CaffeineScore = ½·min(100, max(0, mean caffeine ÷ limit − 0.5) × 100) + ½·min(100, mean residual ÷ reference × 100); ScreenScore = min(100, max(0, mean screen − 4) ÷ 8 × 100); InconsistencyScore = min(100, 0.6·(midpoint SD ÷ 2.5) × 100 + 0.4·(sleep SD ÷ 3) × 100); ArchitectureScore = min(100, (100 − efficiency) ÷ 50 × 100)."
+      }
+    ],
+    "inputs": {
+      "baseline_sleep_h": 8.0,
+      "caffeine_limit_mg": 400.0,
+      "half_life_h": 5.0,
+      "repay_rate": 0.5
+    },
+    "penalties": {
+      "caffeine": 3.72,
+      "screen": 1.39,
+      "fragmentation": 0.39,
+      "short_sleep": 0.0
+    },
+    "raw_score": 5.26,
+    "floor": 0,
+    "floor_driver": null
+  },
+  "coach": {
+    "headline": "Your recovery is optimal with no sleep debt and strong circadian consistency.",
+    "outlook": "If you keep the same routine, the next week will stay stable with low burnout risk. Sleep duration will remain around 8 hours and caffeine residuals stay low. Minor tweaks could improve screen time and caffeine timing further.",
+    "bottlenecks": [
+      {
+        "title": "Screen exposure",
+        "detail": "Average 4.9 h of screens per day, contributing 11.6 points to the score."
+      },
+      {
+        "title": "Caffeine timing",
+        "detail": "Last caffeine often after 9 am, leaving ~18 mg residual at bedtime and adding 6.2 points."
+      },
+      {
+        "title": "Mid‑day sleep swing",
+        "detail": "Sleep midpoint swings 0.25 h across the week, slightly lowering circadian consistency."
+      }
+    ],
+    "schedule": [
+      {
+        "time": "07:06",
+        "title": "Wake up",
+        "detail": "Get out of bed, stretch lightly.",
+        "category": "sunlight"
+      },
+      {
+        "time": "07:21",
+        "title": "Morning light",
+        "detail": "Spend 10 min in natural light or near a window.",
+        "category": "sunlight"
+      },
+      {
+        "time": "07:30",
+        "title": "Hydration & light snack",
+        "detail": "Drink water and have a small protein snack.",
+        "category": "meals"
+      },
+      {
+        "time": "08:00",
+        "title": "First caffeine",
+        "detail": "Enjoy your first coffee (≤120 mg) before the 13:06 cutoff.",
+        "category": "caffeine"
+      },
+      {
+        "time": "08:36",
+        "title": "Start focus work",
+        "detail": "Begin deep‑work tasks; limit interruptions.",
+        "category": "focus"
+      },
+      {
+        "time": "09:30",
+        "title": "Short movement break",
+        "detail": "5‑minute walk or stretch to reset posture.",
+        "category": "movement"
+      },
+      {
+        "time": "10:30",
+        "title": "Mid‑morning screen check",
+        "detail": "Limit screen use to 15 min for emails only.",
+        "category": "screens"
+      },
+      {
+        "time": "12:00",
+        "title": "Lunch break",
+        "detail": "Balanced meal with protein, carbs, and veggies; avoid caffeine.",
+        "category": "meals"
+      },
+      {
+        "time": "12:06",
+        "title": "End deep work",
+        "detail": "Wrap up focused tasks before the afternoon.",
+        "category": "focus"
+      },
+      {
+        "time": "13:00",
+        "title": "Afternoon light",
+        "detail": "Get outside for 10 min if possible.",
+        "category": "sunlight"
+      },
+      {
+        "time": "13:06",
+        "title": "Caffeine cutoff",
+        "detail": "No more caffeine after this time.",
+        "category": "caffeine"
+      },
+      {
+        "time": "15:00",
+        "title": "Movement break",
+        "detail": "10‑minute walk or light exercise.",
+        "category": "movement"
+      },
+      {
+        "time": "17:30",
+        "title": "Screen wind‑down start",
+        "detail": "Begin reducing screen brightness; avoid new content.",
+        "category": "screens"
+      },
+      {
+        "time": "18:30",
+        "title": "Dinner",
+        "detail": "Light, protein‑rich dinner; finish by 19:30.",
+        "category": "meals"
+      }
+    ],
+    "priorities": [
+      "Shift the last caffeine intake to before 09:00 to lower bedtime residual",
+      "Reduce daily screen time to under 4 hours, especially after 17:00",
+      "Add a 10‑minute outdoor walk after lunch for extra sunlight exposure"
+    ],
+    "comparison": ""
+  }
+}
